@@ -11,6 +11,7 @@ import Navbar from './Navbar';
 
 import Baler from './Baler';
 import Tyrefolding from './Tyrefolding';
+import Tyrecutting from './Tyrecutting';
 
 
 function App() {
@@ -24,11 +25,11 @@ function App() {
         <Route exact path="/enquire" element={<Enquire />} />
         <Route exact path="/products" element={<Products/>} />
         <Route exact path="/footer" element={<Footer/>} />
-
         <Route exact path="/navbar" element={<Navbar/>} />
-
          <Route exact path="/baler" element={<Baler/>} />
          <Route exact path="/tyrefolding" element={<Tyrefolding/>} />
+         <Route exact path="/tyrecutting" element={<Tyrecutting/>} />
+
 
 
       </Routes>
