@@ -10,6 +10,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 import Baler from './Baler';
+import Tyrefolding from './Tyrefolding';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/navbar" element={<Navbar/>} />
 
          <Route exact path="/baler" element={<Baler/>} />
+         <Route exact path="/tyrefolding" element={<Tyrefolding/>} />
 
 
       </Routes>
