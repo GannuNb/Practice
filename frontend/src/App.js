@@ -6,7 +6,11 @@ import Contactus from './Contactus';
 import Enquire from './Enquire';
 import Products from './Products';
 import Footer from './Footer';
+
 import Navbar from './Navbar';
+
+import Baler from './Baler';
+
 
 function App() {
   return (
@@ -19,7 +23,11 @@ function App() {
         <Route exact path="/enquire" element={<Enquire />} />
         <Route exact path="/products" element={<Products/>} />
         <Route exact path="/footer" element={<Footer/>} />
+
         <Route exact path="/navbar" element={<Navbar/>} />
+
+         <Route exact path="/baler" element={<Baler/>} />
+
 
       </Routes>
     </Router>
