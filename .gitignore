@@ -1,0 +1,25 @@
+# Ignore everything inside frontend/node_modules
+/frontend/node_modules/
+
+# Ignore build outputs
+/frontend/build/
+frontend/coverage/
+
+# Ignore dotenv environment files
+frontend/.env*
+!.env.example
+
+# Ignore lock and log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore editor/OS-specific junk
+.DS_Store
+.vscode/
+
+# (Optional) Ignore system files in Practice folder too
+node_modules/
+build/
+coverage/
+.env*
