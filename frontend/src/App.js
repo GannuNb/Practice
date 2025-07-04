@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Contactus from './Contactus';
+import Products from './Products';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
 
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contactus/>} />
+        <Route exact path="/products" element={<Products/>} />
 
       </Routes>
     </Router>
