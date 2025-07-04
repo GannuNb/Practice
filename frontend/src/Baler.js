@@ -3,7 +3,7 @@ import React from 'react'
 function Baler() {
   return (
     <div>
-      <h2>Baler is a good machine</h2>
+      <h2>Baler is a good baler </h2>
     </div>
   )
 }
