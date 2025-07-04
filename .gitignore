@@ -1,25 +1,29 @@
-# Ignore everything inside frontend/node_modules
+# Ignore node_modules inside frontend and backend
 /frontend/node_modules/
+/backend/node_modules/
 
-# Ignore build outputs
+# Ignore build outputs inside frontend and backend
 /frontend/build/
-frontend/coverage/
+/frontend/coverage/
+/backend/build/
+/backend/coverage/
 
-# Ignore dotenv environment files
-frontend/.env*
+# Ignore dotenv environment files inside frontend and backend
+/frontend/.env*
+/backend/.env*
 !.env.example
 
-# Ignore lock and log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Ignore lock and log files (general)
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
 
-# Ignore editor/OS-specific junk
+# Ignore editor and OS-specific files
 .DS_Store
 .vscode/
 
-# (Optional) Ignore system files in Practice folder too
-node_modules/
+# Optional: ignore root level node_modules, build, coverage, env files
+/node_modules/
 build/
 coverage/
 .env*
