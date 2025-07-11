@@ -1,0 +1,66 @@
+.carouselWrapper {
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.carouselWrapper img {
+  object-fit: cover;
+  height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+
+
+.homeimage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeimage img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.aboutnature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2% auto;
+    padding: 30px 20px;
+    background-color: #f5fdfb;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 90%;
+    flex-wrap: wrap;
+}
+
+.aboutnature h2 {
+    font-size: 1.3rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    line-height: 1.8;
+    color: #333;
+}
+
+.aboutnature h1 {
+  font-size: 1.6rem;
+  color: #333;
+  line-height: 1.6;
+  color: blue;
+  margin-bottom: 1.5%;
+}
+
