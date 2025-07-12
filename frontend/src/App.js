@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Contactus from './Contactus';
@@ -10,7 +10,9 @@ import Navbar from './Navbar';
 import Baler from './Baler';
 import Tyrefolding from './Tyrefolding';
 import Tyrecutting from './Tyrecutting';
-
+import Ooty from './Ooty';
+import Signup from './Signup';
+import Login from './Login';
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contactus/>} />
+        <Route exact path="/ooty" element={<Ooty/>}/>
+        <Route exact path="/signup" element={<Signup/>}/>
+        <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/enquire" element={<Enquire />} />
         <Route exact path="/products" element={<Products/>} />
          <Route exact path="/baler" element={<Baler/>} />

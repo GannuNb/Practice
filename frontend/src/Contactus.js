@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import contactcss from './About.module.css';
 import homeimg from './images/nature.jpg';
 
 function Contactus() {
+  const location = useLocation();
+
+  // Function to extract query parameters
+  const getQueryParams = () => {
+    const params = new URLSearchParams(location.search);
+    return {
+      place: params.get('place') || '',
+    };
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +21,14 @@ function Contactus() {
     message: '',
     tour: '',
   });
+
+  // Pre-fill tour field based on query param
+  useEffect(() => {
+    const { place } = getQueryParams();
+    if (place) {
+      setFormData((prev) => ({ ...prev, tour: place }));
+    }
+  }, [location]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });

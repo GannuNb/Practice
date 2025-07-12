@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Homecss from "./Home.module.css";
 import homeimg from "./images/nature.jpg";
 import Homecards from './Homecards';
@@ -6,6 +7,7 @@ import { Carousel } from 'react-bootstrap';
 import img1 from "./images/nature.jpg";
 import img2 from "./images/car3.jpg";
 import img3 from "./images/mountain1.jpg";
+import rock from "./images/rock.png"
 
 
 function Home() {
@@ -23,7 +25,7 @@ function Home() {
         </Carousel.Item>
 
         <Carousel.Item>
-          <img className="d-block w-100" src={img2} alt="Second slide" />
+          <img className="d-block w-100" src={rock} alt="Second slide" />
           <Carousel.Caption className={Homecss.caption}>
             <h3>Adventure Awaits</h3>
             <p>Explore breathtaking trails and mountain landscapes.</p>
@@ -51,9 +53,10 @@ function Home() {
           relaxing by a tranquil lake, or seeking adventure in the mountains, we make travel effortless by handling every detail
           — accommodation, transport, guided tours, and more. Let us take care of everything while you enjoy the magic of the world around you.
         </h2>
+        <Link to="/about">
         <div className="text-center mt-4">
           <button className='btn btn-primary'>Learn More</button>
-        </div>
+        </div></Link>
       </div>
 
 
@@ -83,9 +86,11 @@ function Home() {
               Reach out to us through our contact form, and we’ll respond promptly.
               We're committed to providing exceptional service and building meaningful travel experiences.
             </p>
+            <Link to="/contact">
             <div className="text-center mt-3">
               <button className="btn btn-primary">Contact Us</button>
             </div>
+            </Link>
           </div>
         </div>
       </div>
