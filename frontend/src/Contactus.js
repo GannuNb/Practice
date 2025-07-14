@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 import contactcss from './About.module.css';
 import homeimg from './images/nature.jpg';
 
 function Contactus() {
   const location = useLocation();
 
-  // Function to extract query parameters
+  // Get query parameter like ?place=Ooty
   const getQueryParams = () => {
     const params = new URLSearchParams(location.search);
     return {
@@ -22,7 +23,9 @@ function Contactus() {
     tour: '',
   });
 
-  // Pre-fill tour field based on query param
+  const [status, setStatus] = useState(null);
+
+  // Auto-fill "tour" field from query param
   useEffect(() => {
     const { place } = getQueryParams();
     if (place) {
@@ -34,15 +37,31 @@ function Contactus() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert(JSON.stringify(formData, null, 2));
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('You must be logged in to submit this form.');
+      return;
+    }
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/contact', formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      setStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', phone: '', message: '', tour: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('Failed to send message. Please try again.');
+    }
   };
 
   return (
     <>
-      {/* Image with overlay */}
+      {/* Banner with image and overlay text */}
       <div className={contactcss.aboutWrapper}>
         <img src={homeimg} alt="Scenic view of nature" className={contactcss.image} />
         <div className={contactcss.textOverlay}>
@@ -51,10 +70,14 @@ function Contactus() {
         </div>
       </div>
 
-      {/* Form */}
-      <div className="container my-5">
+      {/* Contact form */}
+      <div className="container my-5" style={{ maxWidth: '600px' }}>
+        {status && (
+          <div className={`alert ${status.includes('successfully') ? 'alert-success' : 'alert-danger'}`}>
+            {status}
+          </div>
+        )}
         <form onSubmit={handleSubmit}>
-          {/* Name */}
           <div className="mb-3">
             <label htmlFor="name" className="form-label text-dark">Name</label>
             <input
@@ -68,7 +91,6 @@ function Contactus() {
             />
           </div>
 
-          {/* Email */}
           <div className="mb-3">
             <label htmlFor="email" className="form-label text-dark">Email</label>
             <input
@@ -82,7 +104,6 @@ function Contactus() {
             />
           </div>
 
-          {/* Phone */}
           <div className="mb-3">
             <label htmlFor="phone" className="form-label text-dark">Phone</label>
             <input
@@ -96,7 +117,6 @@ function Contactus() {
             />
           </div>
 
-          {/* Select Tour */}
           <div className="mb-3">
             <label htmlFor="tour" className="form-label text-dark">Select Tour</label>
             <select
@@ -114,7 +134,6 @@ function Contactus() {
             </select>
           </div>
 
-          {/* Message */}
           <div className="mb-3">
             <label htmlFor="message" className="form-label text-dark">Message</label>
             <textarea
@@ -128,8 +147,7 @@ function Contactus() {
             ></textarea>
           </div>
 
-          {/* Submit */}
-          <button type="submit" className="btn btn-primary">Send Message</button>
+          <button type="submit" className="btn btn-primary w-100">Send Message</button>
         </form>
       </div>
     </>

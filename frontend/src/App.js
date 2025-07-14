@@ -13,6 +13,8 @@ import Tyrecutting from './Tyrecutting';
 import Ooty from './Ooty';
 import Signup from './Signup';
 import Login from './Login';
+import UserProfile from './Userprofile';
+import Contacted from './contacted';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route exact path="/ooty" element={<Ooty/>}/>
         <Route exact path="/signup" element={<Signup/>}/>
         <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/userprofile" element={<UserProfile />} />
+        <Route exact path="/contacted" element={<Contacted/>}/>
         <Route exact path="/enquire" element={<Enquire />} />
         <Route exact path="/products" element={<Products/>} />
          <Route exact path="/baler" element={<Baler/>} />

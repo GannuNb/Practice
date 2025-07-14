@@ -78,4 +78,71 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization']; // Format: Bearer <token>
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) return res.status(401).json({ message: 'Access denied. No token provided.' });
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+};
+
+// GET /api/auth/userprofile
+router.get('/userprofile', authenticateToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password'); // exclude password
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json({ user });
+  } catch (err) {
+    console.error('[USERPROFILE ERROR]:', err);
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+
+router.put('/userprofile', authenticateToken, async (req, res) => {
+  const updateData = {};
+
+  // Only allow these fields
+  const allowedFields = ['name', 'email', 'phone'];
+
+  allowedFields.forEach(field => {
+    if (req.body[field]) {
+      updateData[field] = req.body[field];
+    }
+  });
+
+  if (Object.keys(updateData).length === 0) {
+    return res.status(400).json({ message: 'No valid fields provided for update' });
+  }
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user.id,
+      updateData,
+      { new: true, runValidators: true, context: 'query' }
+    ).select('-password');
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({ user: updatedUser, message: 'Profile updated successfully' });
+  } catch (err) {
+    console.error('[UPDATE USERPROFILE ERROR]:', err);
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+
+
+
 module.exports = router;

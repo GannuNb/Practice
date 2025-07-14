@@ -1,11 +1,11 @@
-/* Navbar */
+/* Base Navbar */
 .custom-navbar {
-  background: rgba(24, 24, 24, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  padding: 14px 30px;
-  z-index: 1000;
   position: relative;
+  z-index: 1000;
+  background: linear-gradient(45deg, #282828, #133c71);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  padding: 14px 30px;
 }
 
 /* Container */
@@ -16,7 +16,11 @@
   flex-wrap: wrap;
 }
 
-/* Brand Text */
+/* Brand */
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+}
 .brand-text {
   font-size: 1.8rem;
   font-weight: bold;
@@ -27,186 +31,92 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  text-decoration: none;
-  color: inherit;
-  white-space: nowrap;
-  transition: all 0.3s ease;
 }
 
-.brand-text:hover {
-  transform: scale(1.05);
-  text-shadow: 0 0 8px #ff4a9c;
-}
-
-.brand-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Hamburger Menu */
+/* Hamburger */
 .hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 20px;
   cursor: pointer;
-  z-index: 1001;
 }
-
 .hamburger .bar {
+  display: block;
+  width: 26px;
   height: 3px;
+  margin: 4px 0;
   background: #fff;
   border-radius: 2px;
 }
 
-/* Nav links wrapper */
+/* Nav Links */
 .nav-links-wrapper {
   display: flex;
 }
-
 .nav-links {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-
-/* Nav Items */
 .nav-item,
 .active-link {
+  position: relative;
   font-size: 1.05rem;
   font-weight: bold;
   text-transform: uppercase;
-  position: relative;
-  color: #50bf9b !important;
+  color: #62d4f2 !important;
   text-decoration: none !important;
-  transition: all 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-
 .nav-item::after {
   content: "";
   position: absolute;
   bottom: -6px;
   left: 0;
-  height: 3px;
   width: 0;
+  height: 3px;
   background: linear-gradient(90deg, #ff4a9c, #a75aff);
   transition: width 0.3s ease;
 }
-
-.nav-item:hover::after {
+.nav-item:hover::after,
+.active-link::after {
   width: 100%;
 }
 
-.nav-item:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #1623e0;
-}
-
-/* Dropdown */
-.about-item {
-  position: relative;
+/* Profile Icon (no dropdown) */
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: 1rem;
+  user-select: none;
+}
+.profile-icon:hover {
+  background: #d4d4d4;
 }
 
-.dropdown-menu-custom {
-  position: absolute;
-  top: 120%;
-  left: 0;
-  background-color: #1e1e1e;
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  padding: 8px 0;
-  min-width: 140px;
-  z-index: 9999;
-}
-
-.dropdown-link {
-  display: block;
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  text-decoration: none;
-  color: #ff4a9c;
-  font-weight: bold;
-  transition: background 0.2s, color 0.2s;
-}
-
-.dropdown-link:hover {
-  background: #2c2c2c;
-  color: #fff;
-}
-
-.dropdown-arrow {
-  font-size: 0.8rem;
-  vertical-align: middle;
-  transition: transform 0.3s ease;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* -----------------------
-   Mobile Styles
------------------------- */
+/* Responsive: Hamburger + Mobile Menu */
 @media (max-width: 991px) {
-  .nav-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .hamburger {
-    display: flex;
+    display: block;
   }
-
   .nav-links-wrapper {
     display: none;
     width: 100%;
   }
-
   .nav-links-wrapper.show {
     display: block;
-    position: static;
-    width: 100%;
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
   }
-
   .nav-links {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    padding-left: 10px;
-    margin-top: 10px;
-  }
-
-  .dropdown-menu-custom {
-    position: static;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-    min-width: unset;
-  }
-
-  .dropdown-link {
-    padding: 8px 0;
-    color: #ff4a9c;
-    font-weight: bold;
-  }
-
-  .dropdown-link:hover {
-    background: none;
-    color: #fff;
-  }
-}
-
-
-@media (max-width: 500px) {
-  .brand-text{
-    font-size: 1.41rem;
+    padding: 10px;
   }
 }
