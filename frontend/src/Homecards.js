@@ -33,7 +33,7 @@ const cards = [
     bg: "bg4",
     btnClass: "btnPink",
     image: img3,
-    path: "/other-tourists",
+    path: "/places",
   },
 ];
 

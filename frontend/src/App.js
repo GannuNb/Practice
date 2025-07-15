@@ -15,6 +15,9 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './Userprofile';
 import Contacted from './contacted';
+import Goa from './Goa';
+import Pahalgam from './Pahalgam';
+import Places from './Places';
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contactus/>} />
         <Route exact path="/ooty" element={<Ooty/>}/>
+        <Route exact path="/goa" element={<Goa />} />
+        <Route exact path="/pahalgam" element={<Pahalgam />} />
+        <Route exact path="/places" element={<Places />} />
         <Route exact path="/signup" element={<Signup/>}/>
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/userprofile" element={<UserProfile />} />
@@ -39,6 +45,7 @@ function App() {
 
 
       </Routes>
+      <Footer/>
     </Router>
   );
 }
