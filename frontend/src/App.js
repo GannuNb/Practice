@@ -15,7 +15,7 @@ import Signup from './Signup';
 import Login from './Login';
 import UserProfile from './Userprofile';
 import Contacted from './contacted';
-
+import PdfGenerator from './PdfGenerator';
 function App() {
   return (
     <Router>
@@ -35,6 +35,7 @@ function App() {
          <Route exact path="/baler" element={<Baler/>} />
          <Route exact path="/tyrefolding" element={<Tyrefolding/>} />
          <Route exact path="/tyrecutting" element={<Tyrecutting/>} />
+         <Route exact path="/pdf" element={<PdfGenerator />} />
 
 
 
