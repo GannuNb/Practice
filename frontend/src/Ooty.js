@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ootycss from "./Home.module.css";
 import { Carousel } from 'react-bootstrap';
-import img1 from "./images/nature.jpg";
-import img2 from "./images/car3.jpg";
-import img3 from "./images/mountain1.jpg";
+import img1 from "./images/ooty1.jpg";
+import img2 from "./images/ooty2.jpg";
+import img3 from "./images/ooty3.jpg";
 
 function Ooty() {
     return (
@@ -104,7 +104,7 @@ function Ooty() {
                     </div>
                 </div>
 
-                <div className="text-center mt-5">
+                <div className="text-center mt-5 mb-5">
                     <Link to="/contact?place=Ooty" className="btn btn-primary btn-lg">
                         📅 Book a Trip
                     </Link>
