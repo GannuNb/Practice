@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // import useNavigate
 import Contacted from './contacted';
 
 function UserProfile() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
-  const [editingField, setEditingField] = useState(null); // 'name', 'email', or 'phone' or null
+  const [editingField, setEditingField] = useState(null);
   const [fieldValue, setFieldValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
+  const navigate = useNavigate(); // initialize navigation
+
+
+  useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    setError('User not logged in.');
+    navigate('/login');
+    return;
+  }
+}, [navigate]);
+
+
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -61,7 +75,6 @@ function UserProfile() {
       return;
     }
 
-    // Prepare data with only the updated field
     const updateData = { [editingField]: fieldValue };
 
     try {
@@ -78,6 +91,11 @@ function UserProfile() {
       setError(err.response?.data?.message || 'Error updating profile');
     }
     setLoading(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   if (error) {
@@ -179,6 +197,10 @@ function UserProfile() {
 
         {successMsg && <div className="alert alert-success mt-3">{successMsg}</div>}
         {error && <div className="alert alert-danger mt-3">{error}</div>}
+
+        <div className="mt-4">
+          <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+        </div>
       </div>
 
       <Contacted />
