@@ -19,6 +19,7 @@ import PdfGenerator from './PdfGenerator';
 import Goa from './Goa';
 import Pahalgam from './Pahalgam';
 import Places from './Places';
+import PaymentButton from './PaymentButton';
 
 
 
@@ -39,12 +40,16 @@ function App() {
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/userprofile" element={<UserProfile />} />
         <Route exact path="/contacted" element={<Contacted/>}/>
+        <Route exact path="/payment" element={<PaymentButton />} />
+
+
+
         <Route exact path="/enquire" element={<Enquire />} />
         <Route exact path="/products" element={<Products/>} />
-         <Route exact path="/baler" element={<Baler/>} />
-         <Route exact path="/tyrefolding" element={<Tyrefolding/>} />
-         <Route exact path="/tyrecutting" element={<Tyrecutting/>} />
-         <Route exact path="/pdf" element={<PdfGenerator />} />
+        <Route exact path="/baler" element={<Baler/>} />
+        <Route exact path="/tyrefolding" element={<Tyrefolding/>} />
+        <Route exact path="/tyrecutting" element={<Tyrecutting/>} />
+        <Route exact path="/pdf" element={<PdfGenerator />} />
 
 
 
