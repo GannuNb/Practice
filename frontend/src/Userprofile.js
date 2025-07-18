@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // import useNavigate
 import Contacted from './contacted';
+import Booked from './Booked';
 
 function UserProfile() {
   const [user, setUser] = useState(null);
@@ -202,6 +203,8 @@ function UserProfile() {
           <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
         </div>
       </div>
+
+      <Booked/>
 
       <Contacted />
     </>

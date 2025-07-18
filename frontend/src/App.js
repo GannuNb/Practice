@@ -20,8 +20,8 @@ import Goa from './Goa';
 import Pahalgam from './Pahalgam';
 import Places from './Places';
 import PaymentButton from './PaymentButton';
-
-
+import BookTripForm from './BookTripForm';
+import Booked from "./Booked"
 
 function App() {
   return (
@@ -41,7 +41,8 @@ function App() {
         <Route exact path="/userprofile" element={<UserProfile />} />
         <Route exact path="/contacted" element={<Contacted/>}/>
         <Route exact path="/payment" element={<PaymentButton />} />
-
+        <Route exact path="/booktrip" element={<BookTripForm />} />
+        <Route exact path="/booked" element={<Booked/>} />
 
 
         <Route exact path="/enquire" element={<Enquire />} />

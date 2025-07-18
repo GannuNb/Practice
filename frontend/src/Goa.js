@@ -103,10 +103,17 @@ function Goa() {
                     </div>
                 </div>
 
-                <div className="text-center mt-5 mb-5">
-                    <Link to="/contact?place=Goa" className="btn btn-primary btn-lg">
-                        📅 Book a Trip
-                    </Link>
+                <div className="row justify-content-center align-items-center">
+                    <div className="col-12 col-md-4 mb-3 d-flex justify-content-center">
+                        <Link to="/contact?place=Goa" className="btn btn-primary btn-lg w-100">
+                            📞 Contact
+                        </Link>
+                    </div>
+                    <div className="col-12 col-md-4 mb-3 d-flex justify-content-center">
+                        <Link to="/booktrip?place=Goa" className="btn btn-success btn-lg w-100">
+                            📅 Book Trip
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>
